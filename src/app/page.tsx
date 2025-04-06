@@ -21,16 +21,19 @@ export default function Portfolio() {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 h-20 px-6 py-0 bg-white/10 dark:bg-black/10 backdrop-blur-md border-b border-white/10 dark:border-white/10 flex justify-between items-center shadow-sm">
       
-        <div className="h-full flex items-center justify-center">
-          <Image
-            src="/703d1cbe-6398-4dfb-91eb-ec47250e9f7d.png"
-            alt="Logo"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="h-full w-auto object-contain"
-          />
-        </div>
+      <div className="h-full flex items-center justify-start">
+  <div className="relative w-[290px] h-[150px]">
+    <Image
+      src={darkMode ? "/703d1cbe-6398-4dfb-91eb-ec47250e9f7d.png" : "/dark-logo.png"}
+      alt="Logo"
+      fill
+      className="object-contain"
+      priority
+      sizes="100vw"
+    />
+  </div>
+</div>
+
 
         <div className="flex items-center gap-6">
           <a href="#about" className="hover:underline text-sm font-medium">About</a>
@@ -172,7 +175,14 @@ export default function Portfolio() {
                 <h3 className="text-xl font-semibold mb-1">{cert.title}</h3>
                 <p className="text-sm opacity-80 mb-2"><a href={cert.link}>{cert.institution}</a></p>
                 {cert.status && <p className="text-sm text-gray-400 mb-2">{cert.status}</p>}
-                <a href={cert.url} target="_blank" className="text-blue-300 text-sm font-medium hover:text-white">View</a>
+                <a
+                  href={cert.url}
+                  target="_blank"
+                  className="text-blue-600 dark:text-blue-300 text-sm font-medium hover:text-blue-800 dark:hover:text-white transition-colors"
+                >
+                  View
+                </a>
+
               </Card>
             </motion.div>
           ))}
@@ -209,7 +219,7 @@ export default function Portfolio() {
               <Card className="p-5 transition-all rounded-2xl border text-inherit bg-opacity-10 hover:bg-opacity-20">
                 <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                 <p className="text-sm opacity-80 mb-2">{project.desc}</p>
-                <a href={project.url} target="_blank" className="text-blue-300 text-sm font-medium hover:text-white">View on GitHub</a>
+                <a href={project.url} target="_blank" className="text-blue-600 dark:text-blue-300 text-sm font-medium hover:text-blue-800 dark:hover:text-white transition-colors">View on GitHub</a>
               </Card>
             </motion.div>
           ))}
