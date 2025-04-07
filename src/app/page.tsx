@@ -16,21 +16,22 @@ export default function Portfolio() {
   }, [darkMode]);
 
   return (
-    <main className={`min-h-screen transition-colors duration-700 ${darkMode ? "bg-gradient-to-br from-black to-blue-900 text-white" : "bg-white text-gray-900"} px-6 pb-10 pt-24`}>
+    <main className={`min-h-screen transition-colors duration-700 ${darkMode ? "bg-gradient-to-br from-black to-blue-950 text-white" :"bg-[radial-gradient(circle_at_top_left,white,rgb(140,226,255))] text-gray-900"} px-6 pb-10 pt-24`}>
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 h-20 px-6 py-0 bg-white/10 dark:bg-black/10 backdrop-blur-md border-b border-white/10 dark:border-white/10 flex justify-between items-center shadow-sm">
       
       <div className="h-full flex items-center justify-start">
   <div className="relative w-[290px] h-[150px]">
-    <Image
-      src={darkMode ? "/703d1cbe-6398-4dfb-91eb-ec47250e9f7d.png" : "/dark-logo.png"}
-      alt="Logo"
-      fill
-      className="object-contain"
-      priority
-      sizes="100vw"
-    />
+      <a href="#hero">  <Image
+          src={darkMode ? "/703d1cbe-6398-4dfb-91eb-ec47250e9f7d.png" : "/dark-logo.png"}
+          alt="Logo"
+          fill
+          className="object-contain"
+          priority
+          sizes="100vw"
+        />
+      </a>
   </div>
 </div>
 
@@ -51,7 +52,8 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="text-center mb-20">
         <motion.h1 
-          className="text-5xl font-extrabold mb-3"
+          className="text-5xl font-extrabold mb-3 scroll-mt-24"
+          id= "hero"
           initial={{ opacity: 0, y: -30 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.7 }}
@@ -101,7 +103,7 @@ export default function Portfolio() {
       
         <h2 className="text-3xl font-bold mb-6 text-center">Tech Stack & Tools</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 center">
-          {["Python","NumPy",  "Pandas","SQL", "Excel", "Machine Learnig","Data Analysis","Data Visualization","Statistics"].map((skill, i) => (
+          {["Python","NumPy",  "Pandas","SQL","Data Analysis","Seaborn","Matplotlib","Statistics", "Machine Learnig", "Excel","Jupyter"].map((skill, i) => (
             <motion.div key={i} whileHover={{ scale: 1.05 }}>
               <Card className={`p-4 text-center font-medium ${darkMode ? "text-white" : "text-black"} bg-opacity-10 hover:bg-opacity-20 rounded-2xl shadow-md`}>
                 {skill}
@@ -157,14 +159,14 @@ export default function Portfolio() {
           {[
             {
               title: "Certificate Artificial Intelligence & Data Science",
-              institution: "Jagat Guru Nanak Dev Open University Patiala",
+              institution: "Jagat Guru Nanak Dev Open University, Patiala",
               status: "Completed",
               link: "https://psou.ac.in/index.php",
               url: "/image.png",
             },
             {
               title: "Data Science with Python",
-              institution: "Cetpa Infotech",
+              institution: "Cetpa Infotech, Noida",
               status: "Ongoing",
               link : "https://www.cetpainfotech.com/",
               url: "",
